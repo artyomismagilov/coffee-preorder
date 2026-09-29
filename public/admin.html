@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Админ — меню и статистика</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Администратор</div>
+    <div class="row">
+      <a href="/barista.html" style="color:#efe0cc">Заказы</a>
+      <span class="who" id="who"></span>
+      <button class="ghost" type="button" id="logout">Выйти</button>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="card" style="margin-bottom:20px">
+      <h1>Заказы на линии времени</h1>
+      <div class="row">
+        <button type="button" class="secondary" data-range="today">Сегодня</button>
+        <button type="button" class="secondary" data-range="7d">7 дней</button>
+        <button type="button" class="secondary" data-range="30d">30 дней</button>
+      </div>
+      <p class="muted" id="totals"></p>
+      <canvas id="chart" height="110"></canvas>
+    </section>
+
+    <section class="card" style="margin-bottom:20px">
+      <h2>Добавить товар вручную</h2>
+      <form id="add-form" class="row" style="align-items:flex-end">
+        <div style="flex:2;min-width:160px">
+          <label for="name">Название</label>
+          <input id="name" required />
+        </div>
+        <div style="flex:1;min-width:120px">
+          <label for="category">Категория</label>
+          <select id="category">
+            <option value="drink">Напиток</option>
+            <option value="dessert">Десерт</option>
+          </select>
+        </div>
+        <div style="flex:1;min-width:100px">
+          <label for="price">Цена, ₽</label>
+          <input id="price" type="number" min="0" step="1" required />
+        </div>
+        <button type="submit">Добавить</button>
+      </form>
+      <p class="error" id="add-error"></p>
+    </section>
+
+    <section class="card" style="margin-bottom:20px">
+      <h2>Импорт CSV</h2>
+      <p class="muted">Колонки: name, category, price, available. Можно также подложить готовый файл data/cafe.db.</p>
+      <input type="file" id="csv" accept=".csv,text/csv" />
+      <div class="row" style="margin-top:10px">
+        <button type="button" id="import-append">Добавить к меню</button>
+        <button type="button" class="secondary" id="import-replace">Заменить меню</button>
+      </div>
+      <p class="error" id="csv-error"></p>
+    </section>
+
+    <section class="card">
+      <h2>База товаров</h2>
+      <p class="error" id="menu-error"></p>
+      <div style="overflow:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Название</th>
+              <th>Категория</th>
+              <th>Цена</th>
+              <th>В продаже</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

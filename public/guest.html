@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Меню — предзаказ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Дубль Эспрессо</div>
+    <div class="row">
+      <span class="who" id="who"></span>
+      <button class="ghost" type="button" id="logout">Выйти</button>
+    </div>
+  </header>
+  <main class="wrap layout">
+    <section>
+      <h1>Меню</h1>
+      <p class="muted">Выберите напитки и десерты, укажите время выдачи — до 30 минут. Оплата на месте.</p>
+      <div class="grid" id="menu"></div>
+    </section>
+    <aside class="card cart">
+      <h2>Заказ</h2>
+      <div id="cart"></div>
+      <p><strong>Итого:</strong> <span id="total">0 ₽</span></p>
+      <label for="pickup">Когда заберёте</label>
+      <select id="pickup"></select>
+      <p class="error" id="error"></p>
+      <button type="button" id="submit">Оформить без оплаты</button>
+    </aside>
+  </main>
+  <script src="/js/api.js"></script>
+  <script src="/js/guest.js"></script>
+</body>
+</html>

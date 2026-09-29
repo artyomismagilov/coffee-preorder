@@ -1,0 +1,8 @@
+node_modules/
+data/cafe.db
+data/cafe.db-wal
+data/cafe.db-shm
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

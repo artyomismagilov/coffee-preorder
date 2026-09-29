@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Кофейня — вход</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Дубль Эспрессо</div>
+  </header>
+  <main class="wrap">
+    <section class="card login-hero">
+      <h1>Предзаказ</h1>
+      <p class="muted">Войдите по номеру бонусной программы. Роль определяется по телефону: гость, бариста или администратор.</p>
+      <form id="form">
+        <label for="phone">Телефон</label>
+        <input id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="+7 999 000-00-00" required />
+        <label for="name">Имя</label>
+        <input id="name" name="name" autocomplete="name" placeholder="Как к вам обращаться" />
+        <p class="hint">Имя нужно при первом входе гостя и для экрана баристы.</p>
+        <p class="error" id="error"></p>
+        <button type="submit">Войти</button>
+      </form>
+      <p class="hint" style="margin-top:18px">Тестовые номера: администратор <strong>+79990000001</strong>, бариста <strong>+79990000002</strong>. Любой другой номер станет гостем.</p>
+    </section>
+  </main>
+  <script src="/js/api.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>
